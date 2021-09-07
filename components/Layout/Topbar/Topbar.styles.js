@@ -10,7 +10,7 @@ export const TopbarContainer = styled.div`
       position: relative;
       width: 100%;
       height: 100%;
-      padding: 0 1rem;
+      padding: 0 3rem;
 
       display: flex;
       justify-content: space-between;
@@ -49,7 +49,7 @@ export const TopbarContainer = styled.div`
               background-color: ${colors.blue};
               padding: 0.1rem 0.5rem;
               top: -0.5rem;
-              right: -0.2rem;
+              right: -0.5rem;
               border-radius: 50%;
               color: #fff;
               font-size: 1.2rem;

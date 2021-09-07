@@ -1,0 +1,38 @@
+export const contactsList = [
+  {
+    name: "Ernest Terry",
+    image: "./images/ernest.png",
+    online: true,
+    offline: false,
+    busy: false,
+    indice: 0,
+    offlineTime: null,
+  },
+  {
+    name: "Bradley rivera",
+    image: "./images/bradley.png",
+    online: true,
+    offline: false,
+    busy: false,
+    indice: 1,
+    offlineTime: null,
+  },
+  {
+    name: "Carry Terry",
+    image: "./images/carry.png",
+    online: false,
+    offline: true,
+    busy: true,
+    indice: 1,
+    offlineTime: null,
+  },
+  {
+    name: "Dennis Francis",
+    image: "./images/dennis.png",
+    online: false,
+    offline: true,
+    busy: false,
+    indice: 0,
+    offlineTime: "3 mins",
+  },
+]

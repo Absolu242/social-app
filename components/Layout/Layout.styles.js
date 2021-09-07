@@ -15,22 +15,22 @@ export const LayoutContainer = styled.div`
     grid-template-columns: 1fr 3fr 1fr;
     width: 100%;
     height: 100%;
+    padding-top: 2rem;
     gap: 20px;
 
     .mainsection {
-      background-color: #fff;
+      background-color: #f1f1f1;
       height: 100vh;
       width: 100%;
+      border-radius: 16px;
     }
 
     .leftbar {
-      background-color: red;
       width: 100%;
       height: 100%;
     }
 
     .rightbar {
-      background-color: green;
       width: 100%;
       height: 100%;
     }
