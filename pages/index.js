@@ -1,9 +1,10 @@
-import Head from "next/head"
+import Link from "next/link"
 import Image from "next/image"
 import Layout from "../components/Layout/Layout"
 import Post from "../components/Post/Post"
 import { storiesList } from "../data/stories"
 import styles from "../styles/Home.module.css"
+
 import {
   HomeGrid,
   HomeGridLeft,
@@ -13,6 +14,7 @@ import {
   StoryList,
   StoryItem,
   NewPostForm,
+  RequestCard,
 } from "../styles/Home.styles"
 
 export default function Home() {
@@ -79,7 +81,84 @@ export default function Home() {
           </NewPostForm>
           <Post />
         </HomeGridLeft>
-        <HomeGridRight>grid right</HomeGridRight>
+        <HomeGridRight>
+          <RequestCard>
+            <div className='content'>
+              <div className='content--top'>
+                <p>Friend Requests</p>
+                <Link href='/friends'>
+                  <a>See All</a>
+                </Link>
+              </div>
+              <div className='content--bottom'>
+                <div className='content--bottom__friend'>
+                  <img src='./images/katie.png' alt='user' />
+                  <div className='info'>
+                    <p className='name'>Joe Burke </p>
+                    <p className='number'>18 mutual friends</p>
+                  </div>
+                </div>
+                <div className='content--bottom__btns'>
+                  <button className='btn-primary'>confirm</button>
+                  <button className='btn-secondary'>Delete</button>
+                </div>
+              </div>
+            </div>
+          </RequestCard>
+
+          <RequestCard>
+            <div className='content'>
+              <div className='content--top'>
+                <p>Events</p>
+                <button>
+                  <img src='./icons/dots.png' alt='user' />
+                </button>
+              </div>
+              <div className='content--bottom'>
+                <div className='content--bottom__event'>
+                  <img src='./icons/eventIcon.png' alt='user' />
+                  <p className='number'>10 Events Invites</p>
+                </div>
+
+                <div className='content--bottom__birth'>
+                  <img src='./icons/birthdayIcon.png' alt='user' />
+                  <p className='number'>Today is Katie Waters birthday</p>
+                </div>
+              </div>
+            </div>
+          </RequestCard>
+
+          <RequestCard>
+            <div className='content'>
+              <div className='content--top'>
+                <p>Suggested Pages</p>
+                <Link href='/friends'>
+                  <a>See All</a>
+                </Link>
+              </div>
+              <div className='content--bottom'>
+                <div className='content--bottom__friend'>
+                  <img src='./icons/groupIcon.png' alt='user' />
+                  <div className='info'>
+                    <p className='name'>Carrot Labs </p>
+                    <p className='number'>Design Studio</p>
+                  </div>
+                </div>
+                <img
+                  src='./images/groupBanner.png'
+                  alt='banner'
+                  className='content--bottom__img'
+                />
+                <div className='content--bottom__btns'>
+                  <button className='btn-secondary likeBtn'>
+                    <img src='./icons/likePage.png' alt='like button' />
+                    <span>Like Page</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </RequestCard>
+        </HomeGridRight>
       </HomeGrid>
     </Layout>
   )

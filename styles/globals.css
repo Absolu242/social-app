@@ -29,3 +29,15 @@ button {
 * {
   box-sizing: border-box;
 }
+
+.btn-primary {
+  background-color: #0052cc;
+  border: none;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #f3f6f8;
+  border: none;
+  color: #171717;
+}

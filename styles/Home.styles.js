@@ -147,3 +147,129 @@ export const NewPostForm = styled.div`
     }
   }
 `
+
+export const RequestCard = styled.div`
+  position: relative;
+  background-color: ${colors.white};
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  width: 100%;
+  min-height: 225px;
+
+  .content {
+    position: relative;
+    height: 100%;
+
+    &--top {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2.5rem 2rem;
+      border-bottom: 1px solid ${colors.lightGray};
+
+      p {
+        font-size: 1.4rem;
+      }
+
+      a {
+        color: ${colors.blue};
+        font-size: 1.2rem;
+      }
+    }
+
+    &--bottom {
+      position: relative;
+      padding: 2.5rem 2rem 1rem 2rem;
+
+      &__friend {
+        display: flex;
+        align-items: center;
+
+        .info {
+          padding-left: 1.5rem;
+
+          .name {
+            font-size: 1.4rem;
+          }
+          .number {
+            font-size: 1.2rem;
+            color: ${colors.gray};
+            padding: 0.2rem 0;
+          }
+        }
+      }
+
+      &__event {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 1.8rem 2rem 1.5rem 1.5rem;
+        background-color: ${colors.lightGray};
+        border-radius: 12px;
+
+        img {
+          padding-right: 2rem;
+        }
+        p {
+          font-size: 1.4rem;
+        }
+      }
+
+      &__birth {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 1.5rem 2rem 1.5rem 1.5rem;
+        background-color: #fbeae6;
+
+        border-radius: 12px;
+        margin: 2rem 0;
+
+        img {
+          padding-right: 2rem;
+        }
+        p {
+          font-size: 1.4rem;
+        }
+      }
+
+      &__img {
+        padding-top: 1.5rem;
+        width: 228px;
+        height: 120px;
+        border-radius: 16px;
+      }
+
+      &__btns {
+        outline: none;
+        padding: 2.5rem 0;
+        padding-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+          padding: 1.2rem 2.5rem;
+          border-radius: 16px;
+          width: 48%;
+
+          &.likeBtn {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 2.5rem;
+            border-radius: 20px;
+
+            img {
+              padding-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+`
