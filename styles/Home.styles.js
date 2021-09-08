@@ -238,9 +238,11 @@ export const RequestCard = styled.div`
 
       &__img {
         padding-top: 1.5rem;
-        width: 228px;
-        height: 120px;
+        min-width: 228px;
+        min-height: 120px;
         border-radius: 16px;
+        width: 100%;
+        height: 100%;
       }
 
       &__btns {
