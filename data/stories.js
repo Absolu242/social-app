@@ -1,26 +1,26 @@
 export const storiesList = [
   {
     id: "1",
-    userImage: "",
+    userImage: "./images/ernest.png",
     username: "Rahan Bouess",
-    storyImages: [],
+    storyImages: ["./images/story1.png"],
   },
   {
     id: "2",
-    userImage: "",
-    username: "Kati Waters",
-    storyImages: [],
+    userImage: "./images/katie.png",
+    username: "Katie Waters",
+    storyImages: ["./images/story2.png"],
   },
   {
     id: "3",
-    userImage: "",
+    userImage: "./images/dennis.png",
     username: "Denis francis ",
-    storyImages: [],
+    storyImages: ["./images/story3.png"],
   },
   {
     id: "4",
-    userImage: "",
+    userImage: "./images/bradley.png",
     username: "Bradley rivera",
-    storyImages: [],
+    storyImages: ["./images/story4.png"],
   },
 ]

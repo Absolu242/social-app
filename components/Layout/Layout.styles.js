@@ -12,15 +12,14 @@ export const LayoutContainer = styled.div`
 
   .container {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 3.5fr 1fr;
     width: 100%;
     height: 100%;
     padding-top: 2rem;
-    gap: 20px;
 
     .mainsection {
       background-color: #f1f1f1;
-      height: 100vh;
+      min-height: 100vh;
       width: 100%;
       border-radius: 16px;
     }
