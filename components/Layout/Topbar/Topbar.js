@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link"
 import { TopbarContainer } from "./Topbar.styles"
 
 export default function Topbar() {
@@ -47,14 +48,18 @@ export default function Topbar() {
           </span>
 
           <span className='topbar-icon'>
-            <button>
-              <img
-                className='avatar'
-                src='./images/Avatar.png'
-                alt='add freind button'
-              />
-              <img className='more' src='./icons/more.png' alt='more' />
-            </button>
+            <Link href='/profile'>
+              <a>
+                <button>
+                  <img
+                    className='avatar'
+                    src='./images/Avatar.png'
+                    alt='add freind button'
+                  />
+                  <img className='more' src='./icons/more.png' alt='more' />
+                </button>
+              </a>
+            </Link>
           </span>
         </div>
       </div>

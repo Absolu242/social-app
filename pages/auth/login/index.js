@@ -1,31 +1,60 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
+import { getSession, signIn, useSession } from "next-auth/client"
 import Link from "next/link"
+import { useRouter } from "next/router"
+
 import { useFormik } from "formik"
 import * as Yup from "yup"
 
 import { AuthContainer } from "../../../styles/Auth.styles"
 
 export default function Login() {
+  const [isSuccess, setIsSuccess] = useState(false)
+  const router = useRouter()
+
+  const { data: session, status } = useSession()
+
+  console.log(session)
+  console.log(status)
+
+  useEffect(() => {
+    if (isSuccess) {
+      router.replace("/profile")
+    }
+  }, [isSuccess, router])
+
   const formik = useFormik({
     initialValues: {
-      username: "",
+      // username: "",
+      email: "",
       password: "",
-      remember: false,
+      // remember: false,
     },
     validationSchema: Yup.object({
-      username: Yup.string()
-        .max(20, "Must be 15 characters or less")
-        .required("Required"),
+      // username: Yup.string()
+      //   .max(20, "Must be 15 characters or less")
+      //   .required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
       password: Yup.string()
         .max(15, "Must be 15 characters or less")
         .required("Required"),
-      remember: Yup.boolean().oneOf(
-        [true || false],
-        "You must accept the terms and conditions"
-      ),
+      // remember: Yup.boolean().required,
     }),
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
+    onSubmit: async (values) => {
+      if (values) {
+        const data = await signIn("credentials", {
+          redirect: true,
+          email: values.email,
+          password: values.password,
+        })
+        if (!data.error || data.ok) {
+          getSession().then((session) => {
+            if (session) {
+              setIsSuccess(true)
+            }
+          })
+        }
+      }
     },
   })
 
@@ -61,15 +90,15 @@ export default function Login() {
               <div className='form--item'>
                 <input
                   className='form--item_input'
-                  type='text'
+                  type='email'
                   placeholder=''
-                  {...formik.getFieldProps("username")}
+                  {...formik.getFieldProps("email")}
                 />
                 <label htmlFor='' className='form--item_label'>
-                  Username
+                  Email
                 </label>
-                {formik.touched.username && formik.errors.username ? (
-                  <div className='error-msg'>{formik.errors.username}</div>
+                {formik.touched.email && formik.errors.email ? (
+                  <div className='error-msg'>{formik.errors.email}</div>
                 ) : null}
               </div>
 
@@ -96,7 +125,7 @@ export default function Login() {
                     <input
                       type='checkbox'
                       name='terms'
-                      {...formik.getFieldProps("remember")}
+                      // {...formik.getFieldProps("remember")}
                     />
                     <p>Remember Me</p>
                   </span>
@@ -111,14 +140,16 @@ export default function Login() {
                     </Link>
                   </p>
                 </div>
-                {formik.touched.remember && formik.errors.remember ? (
+                {/* {formik.touched.remember && formik.errors.remember ? (
                   <div className='error-msg'>{formik.errors.remember}</div>
-                ) : null}
+                ) : null} */}
               </div>
 
               <div className='form--item_btns'>
                 <span>
-                  <button className='btn-primary'>Login</button>
+                  <button type='submit' className='btn-primary'>
+                    Login
+                  </button>
                 </span>
                 <p className='btn-divider'>OR</p>
                 <span>

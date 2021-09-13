@@ -1,9 +1,12 @@
 import Link from "next/link"
-import Image from "next/image"
+
+import { getSession } from "next-auth/client"
+import { useEffect, useState } from "react"
+import { useSession } from "next-auth/client"
+import { useRouter } from "next/router"
 import Layout from "../components/Layout/Layout"
 import Post from "../components/Post/Post"
 import { storiesList } from "../data/stories"
-import styles from "../styles/Home.module.css"
 
 import {
   HomeGrid,
@@ -163,3 +166,5 @@ export default function Home() {
     </Layout>
   )
 }
+
+Home.auth = true

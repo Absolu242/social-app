@@ -1,11 +1,39 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 
 import { AuthContainer } from "../../../styles/Auth.styles"
 
+async function createUser(info) {
+  const response = await fetch("/api/auth/signup", {
+    method: "POST",
+    body: JSON.stringify(info),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+
+  const data = await response.json()
+
+  if (!response.ok) {
+    throw new Error(data.message || "Something went wrong!")
+  }
+
+  return response
+}
+
 export default function Signup() {
+  const [isSuccess, setIsSuccess] = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    if (isSuccess) {
+      router.push("/auth/login")
+    }
+  }, [isSuccess, router])
+
   const formik = useFormik({
     initialValues: {
       fullname: "",
@@ -30,8 +58,12 @@ export default function Signup() {
         "You must accept the terms and conditions"
       ),
     }),
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
+    onSubmit: async (values) => {
+      const result = await createUser(values)
+
+      if (result.ok) {
+        setIsSuccess(true)
+      }
     },
   })
 
